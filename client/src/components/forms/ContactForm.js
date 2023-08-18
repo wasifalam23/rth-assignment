@@ -1,4 +1,12 @@
-const ContactForm = () => {
+const ContactForm = ({
+  address,
+  city,
+  state,
+  pinCode,
+  memories,
+  suggestion,
+  updateFields,
+}) => {
   return (
     <div className="grid grid-cols-2 gap-x-6 gap-y-4">
       <div className="flex flex-col gap-1 col-span-2">
@@ -12,6 +20,8 @@ const ContactForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Address"
+          value={address}
+          onChange={(e) => updateFields({ address: e.target.value })}
           placeholder="Enter your Street Address 1"
         />
       </div>
@@ -26,6 +36,8 @@ const ContactForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="City"
+          value={city}
+          onChange={(e) => updateFields({ city: e.target.value })}
           placeholder="Enter your Last Name"
         />
       </div>
@@ -40,6 +52,8 @@ const ContactForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="State"
+          value={state}
+          onChange={(e) => updateFields({ state: e.target.value })}
           placeholder="Enter your State"
         />
       </div>
@@ -54,12 +68,14 @@ const ContactForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Pin-Code"
+          value={pinCode}
+          onChange={(e) => updateFields({ pinCode: e.target.value })}
           placeholder="Enter your Pincode"
         />
       </div>
       <div className="flex flex-col gap-1 col-span-2">
         <label
-          htmlFor="Pin-Code"
+          htmlFor="memories"
           className="block text-sm font-medium text-gray-700"
         >
           Fondest memories of life @ School
@@ -67,7 +83,9 @@ const ContactForm = () => {
         <textarea
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
-          id="Pin-Code"
+          id="memories"
+          value={memories}
+          onChange={(e) => updateFields({ memories: e.target.value })}
           placeholder="Enter your fondest memories of life @ school"
         />
       </div>
@@ -82,6 +100,8 @@ const ContactForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Pin-Code"
+          value={suggestion}
+          onChange={(e) => updateFields({ suggestion: e.target.value })}
           placeholder="Enter your suggestion"
         />
       </div>

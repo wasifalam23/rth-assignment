@@ -1,4 +1,10 @@
-const SchoolingForm = () => {
+const SchoolingForm = ({
+  yop,
+  martialStatus,
+  currProf,
+  profDesc,
+  updateFields,
+}) => {
   return (
     <div className="grid grid-cols-2 gap-x-6 gap-y-4">
       <div className="flex flex-col gap-1 col-span-2">
@@ -9,9 +15,13 @@ const SchoolingForm = () => {
           Year of Passing
         </label>
         <select
+          value={yop}
+          onChange={(e) => updateFields({ yop: e.target.value })}
+          required
           id="countries"
-          class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
+          className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
         >
+          <option>Choose a year</option>
           <option value="2011">2011</option>
           <option value="2012">2012</option>
           <option value="2013">2013</option>
@@ -35,47 +45,53 @@ const SchoolingForm = () => {
           Marital Status
         </label>
         <div id="gender" className="flex gap-2 items-center mt-3">
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
+              value="Married"
+              checked={martialStatus === 'Married'}
+              onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900 "
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900 "
             >
               Married
             </label>
           </div>
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
+              value="UnMarried"
+              checked={martialStatus === 'UnMarried'}
+              onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900 "
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900 "
             >
               UnMarried
             </label>
           </div>
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
+              value="Other"
+              checked={martialStatus === 'Other'}
+              onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
-              class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
+              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900"
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900"
             >
               Other
             </label>
@@ -92,21 +108,25 @@ const SchoolingForm = () => {
         <input
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
-          id="Email"
+          id="Current Profession"
+          value={currProf}
+          onChange={(e) => updateFields({ currProf: e.target.value })}
           placeholder="Enter your Current Profession"
         />
       </div>
       <div className="flex flex-col gap-1 col-span-2">
         <label
-          htmlFor="Current Profession"
+          htmlFor="Profession-Description"
           className="block text-sm font-medium text-gray-700"
         >
           Profession Description
         </label>
         <textarea
+          value={profDesc}
+          onChange={(e) => updateFields({ profDesc: e.target.value })}
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
-          id="Email"
+          id="Profession-Description"
           placeholder="Enter your Current Profession"
         />
       </div>

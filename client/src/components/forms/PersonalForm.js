@@ -1,6 +1,14 @@
 import React from 'react';
 
-const PersonalForm = () => {
+const PersonalForm = ({
+  firstName,
+  lastName,
+  email,
+  phone,
+  gender,
+  dob,
+  updateFields,
+}) => {
   return (
     <div className="grid grid-cols-2 gap-x-6 gap-y-4">
       <div className="flex flex-col gap-1">
@@ -15,6 +23,9 @@ const PersonalForm = () => {
           type="text"
           id="First-Name"
           placeholder="Enter your First Name"
+          value={firstName}
+          onChange={(e) => updateFields({ firstName: e.target.value })}
+          required
         />
       </div>
       <div className="flex flex-col gap-1">
@@ -28,7 +39,9 @@ const PersonalForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Last-Name"
+          value={lastName}
           placeholder="Enter your Last Name"
+          onChange={(e) => updateFields({ lastName: e.target.value })}
         />
       </div>
       <div className="flex flex-col gap-1 col-span-2">
@@ -40,9 +53,11 @@ const PersonalForm = () => {
         </label>
         <input
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
-          type="text"
+          type="email"
           id="Email"
+          value={email}
           placeholder="Enter your Email id"
+          onChange={(e) => updateFields({ email: e.target.value })}
         />
       </div>
       <div className="flex flex-col gap-1">
@@ -56,7 +71,9 @@ const PersonalForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Contact-no"
-          placeholder="Enter your Email id"
+          value={phone}
+          placeholder="Enter your Phone no"
+          onChange={(e) => updateFields({ phone: e.target.value })}
         />
       </div>
       <div>
@@ -67,47 +84,53 @@ const PersonalForm = () => {
           Gender
         </label>
         <div id="gender" className="flex gap-2 items-center mt-3">
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
               name="colored-radio"
-              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
+              value="Male"
+              checked={gender === 'Male'}
+              onChange={(e) => updateFields({ gender: e.target.value })}
+              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900 "
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900 "
             >
               Male
             </label>
           </div>
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
+              value="Female"
               name="colored-radio"
-              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
+              checked={gender === 'Female'}
+              onChange={(e) => updateFields({ gender: e.target.value })}
+              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900 "
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900 "
             >
               Female
             </label>
           </div>
-          <div class="flex items-center mr-4">
+          <div className="flex items-center mr-4">
             <input
               id="teal-radio"
               type="radio"
-              value=""
+              value="Other"
               name="colored-radio"
-              class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
+              checked={gender === 'Other'}
+              onChange={(e) => updateFields({ gender: e.target.value })}
+              className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />
             <label
-              for="teal-radio"
-              class="ml-2 text-sm font-medium text-gray-900"
+              htmlFor="teal-radio"
+              className="ml-2 text-sm font-medium text-gray-900"
             >
               Other
             </label>
@@ -126,6 +149,8 @@ const PersonalForm = () => {
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="date"
           id="dob"
+          value={dob}
+          onChange={(e) => updateFields({ dob: e.target.value })}
         />
       </div>
     </div>
