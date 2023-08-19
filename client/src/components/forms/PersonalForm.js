@@ -89,8 +89,8 @@ const PersonalForm = ({
               id="teal-radio"
               type="radio"
               name="colored-radio"
-              value="Male"
-              checked={gender === 'Male'}
+              value="male"
+              checked={gender === 'male'}
               onChange={(e) => updateFields({ gender: e.target.value })}
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />
@@ -105,9 +105,9 @@ const PersonalForm = ({
             <input
               id="teal-radio"
               type="radio"
-              value="Female"
+              value="female"
               name="colored-radio"
-              checked={gender === 'Female'}
+              checked={gender === 'female'}
               onChange={(e) => updateFields({ gender: e.target.value })}
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />
@@ -122,9 +122,9 @@ const PersonalForm = ({
             <input
               id="teal-radio"
               type="radio"
-              value="Other"
+              value="other"
               name="colored-radio"
-              checked={gender === 'Other'}
+              checked={gender === 'other'}
               onChange={(e) => updateFields({ gender: e.target.value })}
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500"
             />

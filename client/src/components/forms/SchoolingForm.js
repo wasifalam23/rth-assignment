@@ -49,8 +49,8 @@ const SchoolingForm = ({
             <input
               id="teal-radio"
               type="radio"
-              value="Married"
-              checked={martialStatus === 'Married'}
+              value="married"
+              checked={martialStatus === 'married'}
               onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
@@ -66,8 +66,8 @@ const SchoolingForm = ({
             <input
               id="teal-radio"
               type="radio"
-              value="UnMarried"
-              checked={martialStatus === 'UnMarried'}
+              value="unmarried"
+              checked={martialStatus === 'unmarried'}
               onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
@@ -83,8 +83,8 @@ const SchoolingForm = ({
             <input
               id="teal-radio"
               type="radio"
-              value="Other"
-              checked={martialStatus === 'Other'}
+              value="other"
+              checked={martialStatus === 'other'}
               onChange={(e) => updateFields({ martialStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
