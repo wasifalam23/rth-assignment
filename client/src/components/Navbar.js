@@ -1,10 +1,37 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { authActions } from '../store/auth-slice';
+import useHttp from '../hooks/http-hook';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { sendRequest: logoutUser } = useHttp();
 
-  const logoutHandler = () => {};
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    const logoutStatus = (data) => {
+      if (data.status === 'success') {
+        toast.success('You have successfully logged out');
+        navigate('/');
+        dispatch(authActions.setIsLoggedIn(false));
+      } else {
+        toast.error('Something went wrong!');
+      }
+    };
+
+    logoutUser(
+      {
+        url: 'http://localhost:8000/api/v1/users/logout',
+      },
+      logoutStatus
+    );
+
+    // navigate('/', { replace: true });
+  };
 
   return (
     <nav className="bg-slate-700 flex justify-between px-6 py-3 items-center">
