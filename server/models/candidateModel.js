@@ -40,7 +40,7 @@ const candidateSchema = new mongoose.Schema({
   },
 
   yop: {
-    type: Date,
+    type: String,
   },
 
   maritalStatus: {

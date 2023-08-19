@@ -1,6 +1,5 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const globalErrorHandler = require('./controllers/errorController');

@@ -19,10 +19,6 @@ router
   .route('/:id')
   .get(candidateController.getCandidateById)
   .patch(candidateController.updateCandidate)
-  .delete(
-    authController.protect,
-    authController.restrictTo('admin'),
-    candidateController.deleteCandidate
-  );
+  .delete(candidateController.deleteCandidate);
 
 module.exports = router;
