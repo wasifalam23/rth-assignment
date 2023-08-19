@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
+
 import Steppter from '../components/Steppter';
-import useMultistepForm from '../hooks/useMultistepForm';
+import useStepForm from '../hooks/step-form';
+import useHttp from '../hooks/http-hook';
+
 import PersonalForm from '../components/forms/PersonalForm';
 import SchoolingForm from '../components/forms/SchoolingForm';
 import ContactForm from '../components/forms/ContactForm';
@@ -13,38 +17,58 @@ const INITIAL_DATA = {
   gender: '',
   dob: '',
   yop: '',
-  martialStatus: '',
-  currProf: '',
+  maritalStatus: '',
+  profession: '',
   profDesc: '',
   address: '',
   city: '',
   state: '',
-  pinCode: '',
+  pincode: '',
   memories: '',
   suggestion: '',
 };
 
 const RegisterUser = () => {
-  const [data, setData] = useState(INITIAL_DATA);
+  const [useData, setUserData] = useState(INITIAL_DATA);
+
+  const { sendRequest: postData } = useHttp();
 
   const updateFields = (fields) => {
-    setData((prev) => {
+    setUserData((prev) => {
       return { ...prev, ...fields };
     });
   };
 
   const { currentStepIndex, step, isFirstStep, back, next, isLastStep } =
-    useMultistepForm([
-      <PersonalForm {...data} updateFields={updateFields} />,
-      <SchoolingForm {...data} updateFields={updateFields} />,
-      <ContactForm {...data} updateFields={updateFields} />,
+    useStepForm([
+      <PersonalForm {...useData} updateFields={updateFields} />,
+      <SchoolingForm {...useData} updateFields={updateFields} />,
+      <ContactForm {...useData} updateFields={updateFields} />,
     ]);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     if (!isLastStep) return next();
-    console.log(data);
+
+    const createdData = (data) => {
+      if (data.status === 'success') {
+        toast.success('User is added successfully!');
+      } else {
+        toast.error(data.message);
+      }
+    };
+
+    const reqConfig = {
+      url: 'http://localhost:8000/api/v1/candidates',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(useData),
+    };
+
+    postData(reqConfig, createdData);
   };
 
   return (

@@ -1,7 +1,7 @@
 const SchoolingForm = ({
   yop,
-  martialStatus,
-  currProf,
+  maritalStatus,
+  profession,
   profDesc,
   updateFields,
 }) => {
@@ -50,8 +50,8 @@ const SchoolingForm = ({
               id="teal-radio"
               type="radio"
               value="married"
-              checked={martialStatus === 'married'}
-              onChange={(e) => updateFields({ martialStatus: e.target.value })}
+              checked={maritalStatus === 'married'}
+              onChange={(e) => updateFields({ maritalStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
@@ -67,8 +67,8 @@ const SchoolingForm = ({
               id="teal-radio"
               type="radio"
               value="unmarried"
-              checked={martialStatus === 'unmarried'}
-              onChange={(e) => updateFields({ martialStatus: e.target.value })}
+              checked={maritalStatus === 'unmarried'}
+              onChange={(e) => updateFields({ maritalStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
@@ -84,8 +84,8 @@ const SchoolingForm = ({
               id="teal-radio"
               type="radio"
               value="other"
-              checked={martialStatus === 'other'}
-              onChange={(e) => updateFields({ martialStatus: e.target.value })}
+              checked={maritalStatus === 'other'}
+              onChange={(e) => updateFields({ maritalStatus: e.target.value })}
               name="colored-radio"
               className="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 "
             />
@@ -109,8 +109,8 @@ const SchoolingForm = ({
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Current Profession"
-          value={currProf}
-          onChange={(e) => updateFields({ currProf: e.target.value })}
+          value={profession}
+          onChange={(e) => updateFields({ profession: e.target.value })}
           placeholder="Enter your Current Profession"
         />
       </div>

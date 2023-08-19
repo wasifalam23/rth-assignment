@@ -56,11 +56,31 @@ const candidateSchema = new mongoose.Schema({
     type: String,
   },
 
+  profDesc: {
+    type: String,
+  },
+
+  address: {
+    type: String,
+  },
+
   city: {
     type: String,
   },
 
   state: {
+    type: String,
+  },
+
+  pincode: {
+    type: String,
+  },
+
+  memories: {
+    type: String,
+  },
+
+  suggestion: {
     type: String,
   },
 

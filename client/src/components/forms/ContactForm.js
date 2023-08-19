@@ -2,7 +2,7 @@ const ContactForm = ({
   address,
   city,
   state,
-  pinCode,
+  pincode,
   memories,
   suggestion,
   updateFields,
@@ -68,8 +68,8 @@ const ContactForm = ({
           className="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           type="text"
           id="Pin-Code"
-          value={pinCode}
-          onChange={(e) => updateFields({ pinCode: e.target.value })}
+          value={pincode}
+          onChange={(e) => updateFields({ pincode: e.target.value })}
           placeholder="Enter your Pincode"
         />
       </div>
