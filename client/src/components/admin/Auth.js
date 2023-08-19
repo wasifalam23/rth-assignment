@@ -12,7 +12,7 @@ const AdminAuth = () => {
           type="email"
           id="email"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
-          placeholder="name@flowbite.com"
+          placeholder="example@gmail.com"
           required
         />
       </div>
@@ -28,6 +28,7 @@ const AdminAuth = () => {
           id="password"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5"
           required
+          placeholder="********"
         />
       </div>
 
