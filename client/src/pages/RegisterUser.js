@@ -42,7 +42,7 @@ const RegisterUser = () => {
     });
   };
 
-  const { currentStepIndex, step, isFirstStep, back, next, isLastStep } =
+  const { currentStepIndex, step, isFirstStep, back, next, isLastStep, reset } =
     useStepForm([
       <PersonalForm {...useData} updateFields={updateFields} />,
       <SchoolingForm {...useData} updateFields={updateFields} />,
@@ -66,13 +66,14 @@ const RegisterUser = () => {
         toast.success('User is added successfully!', { duration: 4000 });
         setOpenModal(undefined);
         resetForm();
+        reset();
       } else {
         toast.error(data.message);
       }
     };
 
     const reqConfig = {
-      url: 'http://localhost:8000/api/v1/candidates',
+      url: `${process.env.REACT_APP_URL}/api/v1/candidates`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

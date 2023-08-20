@@ -17,6 +17,10 @@ const useStepForm = (steps) => {
     });
   };
 
+  const reset = () => {
+    setCurrentStepIndex(0);
+  };
+
   return {
     currentStepIndex,
     step: steps[currentStepIndex],
@@ -25,6 +29,7 @@ const useStepForm = (steps) => {
     steps,
     isFirstStep: currentStepIndex === 0,
     isLastStep: currentStepIndex === steps.length - 1,
+    reset,
   };
 };
 export default useStepForm;

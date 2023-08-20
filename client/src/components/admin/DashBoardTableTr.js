@@ -27,7 +27,7 @@ const DashBoardTableTr = (props) => {
     };
 
     const reqConfig = {
-      url: `http://localhost:8000/api/v1/candidates/${props._id}`,
+      url: `${process.env.REACT_APP_URL}/api/v1/candidates/${props._id}`,
       method: 'DELETE',
     };
 

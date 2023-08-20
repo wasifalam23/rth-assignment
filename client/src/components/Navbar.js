@@ -25,7 +25,7 @@ const Navbar = () => {
 
     logoutUser(
       {
-        url: 'http://localhost:8000/api/v1/users/logout',
+        url: `${process.env.REACT_APP_URL}/api/v1/users/logout`,
       },
       logoutStatus
     );

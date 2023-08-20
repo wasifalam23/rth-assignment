@@ -29,7 +29,7 @@ const AdminAuth = () => {
     };
 
     const reqConfig = {
-      url: 'http://localhost:8000/api/v1/users/login',
+      url: `${process.env.REACT_APP_URL}/api/v1/users/login`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

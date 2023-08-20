@@ -23,14 +23,14 @@ const DashBoard = () => {
     };
 
     fetchCandData(
-      { url: 'http://localhost:8000/api/v1/candidates' },
+      { url: `${process.env.REACT_APP_URL}/api/v1/candidates` },
       fetchedData
     );
   }, [fetchCandData, isCandDeleted]);
 
   return (
     <>
-      {isLoading && (
+      {isLoading ? (
         <div className="mb-2">
           <Spinner
             aria-label="Center-aligned spinner example"
@@ -38,58 +38,59 @@ const DashBoard = () => {
             size="lg"
           />
         </div>
+      ) : (
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 ">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <th scope="col" className="px-4 py-3">
+                  First Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Last Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Email
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Phone
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Gender
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  dob
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  yop
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Marital Status
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Profession
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  City
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  State
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {candData
+                .map((data) => {
+                  return <DashBoardTableTr key={data._id} {...data} />;
+                })
+                .reverse()}
+            </tbody>
+          </table>
+        </div>
       )}
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 ">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-              <th scope="col" className="px-4 py-3">
-                First Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Last Name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Email
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Phone
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Gender
-              </th>
-              <th scope="col" className="px-6 py-3">
-                dob
-              </th>
-              <th scope="col" className="px-6 py-3">
-                yop
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Marital Status
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Profession
-              </th>
-              <th scope="col" className="px-6 py-3">
-                City
-              </th>
-              <th scope="col" className="px-6 py-3">
-                State
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {candData
-              .map((data) => {
-                return <DashBoardTableTr key={data._id} {...data} />;
-              })
-              .reverse()}
-          </tbody>
-        </table>
-      </div>
     </>
   );
 };

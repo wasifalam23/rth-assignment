@@ -23,7 +23,7 @@ export default function App() {
     };
 
     checkIsLoggedIn(
-      { url: 'http://localhost:8000/api/v1/users/isLoggedIn' },
+      { url: `${process.env.REACT_APP_URL}/api/v1/users/isLoggedIn` },
       loggedInState
     );
   }, [dispatch, checkIsLoggedIn]);
